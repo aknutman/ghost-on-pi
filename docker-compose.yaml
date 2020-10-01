@@ -1,0 +1,27 @@
+version: '3.2'
+
+services:
+
+  ghost:
+    image: ghost:latest
+    restart: always
+    ports:
+      - 80:2368
+    environment:
+      url: http://ext.local
+      
+    volumes:
+      - /var/www/ghost/content/data:/var/lib/ghost/content/data
+      - /var/www/ghost/content/apps:/var/lib/ghost/content/apps
+      - /var/www/ghost/content/images:/var/lib/ghost/content/images
+      - /var/www/ghost/content/themes:/var/lib/ghost/content/themes
+      
+volumes:
+  ghost_data:
+    driver: local
+  ghost_apps:
+    driver: local
+  ghost_images:
+    driver: local
+  ghost_themes:
+    driver: local
